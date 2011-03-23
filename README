@@ -1,0 +1,4 @@
+Usage:
+chmod +x pcb2paf.py
+./pcb2paf in_pcb out_pcbdoc
+
