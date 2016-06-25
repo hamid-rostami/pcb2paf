@@ -110,7 +110,11 @@ for el in elements:
 for l in layers:
   if l.find('solder') is not -1:
     layer = 'BOTTOM'
+  elif l.find('bottom') is not -1:
+    layer = 'BOTTOM'
   elif l.find('component') is not -1:
+    layer = 'TOP'
+  elif l.find('top') is not -1:
     layer = 'TOP'
   else:
     layer = None
