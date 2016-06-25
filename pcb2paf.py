@@ -19,7 +19,7 @@ try:
 	in_filename = sys.argv[1]
 	out_filename = sys.argv[2]
 except:
-	print "Useage: pcb2paf input_file output_file"
+	print "Usage: pcb2paf input_file output_file"
 	exit(1)
 
 if os.path.exists(in_filename) is not True:
@@ -66,7 +66,7 @@ for line in in_file:
     
     layers.update( {layer_header:temp_data} )
 
-# ---------------- Draw Elemetns
+# ---------------- Draw Elements
 for el in elements:
   info = el[ el.find('[')+1 : el.find(']') ]
   info = info.split(' ')
@@ -110,7 +110,11 @@ for el in elements:
 for l in layers:
   if l.find('solder') is not -1:
     layer = 'BOTTOM'
+  elif l.find('bottom') is not -1:
+    layer = 'BOTTOM'
   elif l.find('component') is not -1:
+    layer = 'TOP'
+  elif l.find('top') is not -1:
     layer = 'TOP'
   else:
     layer = None
